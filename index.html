@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title>Objects and Arrays</title>
+</head>
+
+<body>
+    <h1>Objects and Arrays</h1>
+
+    <script>
+        console.log('Hello World!');
+
+        let user = {name: 'Han Solo', born: 1977, isHappy: true};
+        let name = user.name;
+        console.log(name);
+
+        // let fail = user.foo;                    //throws error, no foo variable exists
+        // console.log(fail);
+
+        user.hobbies = ['flying', 'shooting']; //add property
+        console.log(user);
+
+        function makeAnimal(name, age, species)
+        {
+            let animal = {}
+            animal.name = name;
+            animal.age = age;
+            animal.species = species;
+            return animal; 
+
+            // return (name, age species)
+            // return (name:name, age:age, species:species)
+        }
+        makeAnimal('Chewy', 149, 'Wookie');
+
+        let plane = {model: 'Spitfire'}
+        if(plane.model)
+        {
+            console.log('has model prop (which is truthy)')
+        }
+        if (plane.model !== undefined)
+        {
+            console.log('has model prop (which is not undefined)')
+        }
+
+
+        let arr = ['a', 'b', 'c', 42, true];
+        let first = arr[0];
+        console.log(first);
+        let second = arr[1];
+        console.log(second);
+        let last = arr[arr.length-1]
+        console.log(last);
+        console.log(arr[42]);
+
+        function isEvenNumofElements(arr)
+        {
+            let isEven = arr.length % 2 === 0;
+            let isOdd = arr.length % 2 !== 0;
+
+            if (isEven)
+            {
+                console.log('arr has an even number of elements')
+            }
+            if (isOdd)
+            {
+                console.log('arr has an odd number of elements')
+            }
+        }
+
+        function getFirst(arr)
+        {
+            return arr[0];
+        }
+        function getLast(arr)
+        {
+            // return arr[arr.length-1];
+            return arr.at(-1);
+        }
+
+        let numbers = [1,2,3,4];
+        console.log(numbers);
+        numbers[4] = 5;
+        console.log(numbers);
+        numbers.push(6);
+        console.log(numbers);
+
+        let obj = {name:'foo', age: 25, isHappy: true};
+        let letters = ['a', 'b', 'c', 'd'];
+
+        for(let key in obj)
+        {
+            console.log('\n');
+            console.log('the key -->', key);
+            let value = obj[key];
+            console.log('the value -->', value)
+            console.log('\n');
+        }
+
+        for (let i in letters)
+        {
+            console.log('\n');
+            console.log('the index -->', i);
+            let element = letters[i];
+            console.log('the element -->', element)
+            console.log('\n');
+        }
+
+        function loopOverChars(word)
+        {
+            console.log(word);
+            let split = word.split('');
+            console.log(split);
+            console.log('\n');
+
+            let result = [];
+
+            for (let i in split)
+        {
+            // console.log(i)
+            let char = split[i];
+            // console.log(char);
+            result.push(char.toUpperCase());
+        }
+        return result.join('');
+
+        }
+        loopOverChars('Milennium Falcon')
+
+    </script>
+</body>
+</html>
